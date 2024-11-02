@@ -7,7 +7,7 @@
     <style>
         body {
             background-image:url('haikei.png');
-            background-size: 350px 740px;
+            background-size: 300px 900px;
             font-family: 'Arial', sans-serif;
             text-align: center;
             position: relative;
@@ -37,7 +37,7 @@
         }
         .kado2 {
             position: absolute;
-            width: 100px;
+            width: 150px;
             height: auto;
         }
         .tate {
@@ -48,10 +48,20 @@
             height: auto;
         }
         .title {
-            width: 10%;
-            margin: 60px auto;
-            top: 20px;
-        }
+            width: 10%; 
+            margin: 82px auto; 
+            position: relative;
+            }
+
+            .tokei {
+            position: absolute;
+            width: 150px; 
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1; 
+            z-index: -1; 
+            }
         .usagi, .card {
             width: 50px;
             height: auto;
@@ -70,7 +80,7 @@
             gap: 20px;
         }
         .hint-card {
-            width: 120px;
+            width: 80px;
             height: 120px;
             perspective: 1000px;
         }
@@ -105,53 +115,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            writing-mode: vertical-rl;
         }
         .hint-text {
             display: flex;
             justify-content: center;
             gap: 50px;
             margin-top: 10px;
+            color: rgb(0, 0, 0);
         }
         input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 14px;
-    background-size: contain;
-    border: none; /* デフォルトの枠線を消す */
-    border-radius: 8px;
-    background-image: url('kaitou.png');
-    background-size: contain; /* 画像を全体にフィット */
-    background-repeat: no-repeat;
-    background-position: center; /* 背景画像を中央に配置 */
-    width: 80%; /* フィールドの幅を調整 */
-    height: 55px;
-    color: black; /* 入力したテキストの色 */
-    padding-left: 15px; /* テキストの位置調整 */
-    background-color: transparent; /* ボタン背景を透過 */
-    box-sizing: border-box;
-}
-input[type="text"]:focus {
-    background-image: url('kaitou.png'); /* フォーカス時も背景画像を保持 */
-    background-size: contain; /* 画像全体が表示されるように調整 */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent; /* フォーカス時も背景を透明に */
-}
+            width: 80%;
+            padding: 10px;
+            margin-top: -2000px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
         button {
-    background-image: url('sousin.png');
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-color: transparent; /* ボタン背景を透過 */
-    width: 110px; /* ボタンの幅を調整 */
-    height: 110px; /* ボタンの高さを調整 */
-    border: none; 
-    border-radius: 8px;
-    padding: 0;
-    font-size: 0; 
-    cursor: pointer;
-    margin-top: 20px;
-}
+            background-image: url();
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
         .result-container {
             position: fixed;
             top: 50%;
@@ -179,9 +169,15 @@ input[type="text"]:focus {
         @media (max-width: 600px) {
             .title {
                 width: 80%;
-                margin: 50px auto;
-                position: relative;
-                top: 60px;
+            }
+            .tokei {
+            position: absolute;
+            width: 300px; 
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1; 
+            z-index: -1; 
             }
             .kado {
                 width: 100px;
@@ -193,6 +189,7 @@ input[type="text"]:focus {
             .kado-bottom-left {
                 top:600px;
                 left: 0px;
+                width:200px
             }
             .tate {
                 width: 20px;
@@ -202,77 +199,70 @@ input[type="text"]:focus {
                 width: 80px;
             }
             .hint-container {
-                gap: 40px;
+                gap: 60px;
             }
             .hint-card {
-                width: 130px;
-                height: 130px;
+                width: 90px;
+                height: 135px;
             }
             .hint-back {
-                font-size: 14px;
+    background-image: url('hint2.png');
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright; /* 縦書きで英語や数字を正しい向きに表示 */
+}
             }
             .hint-text {
-                gap: 80px;
+                gap: 100px;
             }
             input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 14px;
-    background-size: contain;
-    border: none; /* デフォルトの枠線を消す */
-    border-radius: 8px;
-    background-image: url('kaitou.png');
-    background-size: contain; /* 画像を全体にフィット */
-    background-repeat: no-repeat;
-    background-position: center; /* 背景画像を中央に配置 */
-    width: 80%; /* フィールドの幅を調整 */
-    height: 55px;
-    color: black; /* 入力したテキストの色 */
-    padding-left: 15px; /* テキストの位置調整 */
-    background-color: transparent; /* ボタン背景を透過 */
-    box-sizing: border-box;
-}
-input[type="text"]:focus {
-    background-image: url('kaitou.png'); /* フォーカス時も背景画像を保持 */
-    background-size: contain; /* 画像全体が表示されるように調整 */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent; /* フォーカス時も背景を透明に */
-}
-
-
+                font-size: 12px;
+                padding: 8px;
+            }
             button {
-    background-image: url('sousin.png');
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-color: transparent; /* ボタン背景を透過 */
-    width: 110px; /* ボタンの幅を調整 */
-    height: 110px; /* ボタンの高さを調整 */
-    border: none; 
-    border-radius: 8px;
-    padding: 0;
-    font-size: 0; 
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-        }
+            background-image: url('sousin.png');
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-color: transparent; /* ボタン背景を透過 */
+            width: 90px; /* ボタンの幅を調整 */
+            height: 90px; /* ボタンの高さを調整 */
+            border: none; 
+            border-radius: 8px;
+            padding: 0;
+            font-size: 0; 
+            cursor: pointer;
+            margin-top: 20px;
+            }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="kado.png" alt="花の模様" class="kado kado-top-right">
-        <img src="title.png" alt="第一関門" class="title">
+        <img src="tate.png" alt="模様" class="tate">
+        <img src="title.png" alt="第十二関門" class="title">
         <br>
-        <div class="text-box">    
+        
+        <!-- Add the tokei image -->
+        <img src="tokei.png" alt="時計" class="tokei">
+    
+        <div class="text-box">
             <form id="quiz-form">
                 <input type="text" id="answer" name="answer" placeholder="答えを入力してください" autocomplete="off">
                 <div class="input-button-wrapper">
+                    <img src="hart.png" alt="ハート" class="usagi">
                     <button type="submit">送信</button>
+                    <img src="card.png" alt="カード" class="card">
                 </div>
             </form>
         </div>
+    </div>
+    </div>
         <div class="overlay" id="overlay"></div>
     
         <div class="result-container" id="result-container">
@@ -280,7 +270,7 @@ input[type="text"]:focus {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+             document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("quiz-form");
     const input = document.getElementById("answer");
     const resultContainer = document.getElementById("result-container");
@@ -288,7 +278,7 @@ input[type="text"]:focus {
     const overlay = document.getElementById("overlay");
 
     // 正解を複数の形式で用意
-    const correctAnswers = ["きょう","キョウ","C","c"];
+    const correctAnswers = ["きょう","キョウ","c","C"];
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -313,23 +303,25 @@ input[type="text"]:focus {
     });
 });
         </script>
-       <div class="hint-container">
-        <div class="hint-card" onclick="flipCard(this)">
-            <div class="hint-card-inner">
-                <div class="hint-front"></div>
-                <div class="hint-back">漢字をひらがなに</div>
+        <div class="hint-container">
+            <div class="hint-card" onclick="flipCard(this)">
+                <div class="hint-card-inner">
+                    <div class="hint-front"></div>
+                    <div class="hint-back">漢字をひらがなに</div>
+                </div>
+            </div>
+            <div class="hint-card" onclick="flipCard(this)">
+                <div class="hint-card-inner">
+                    <div class="hint-front"></div>
+                    <div class="hint-back">日付と文字数の<br>関係を読み解こう</div>
+                </div>
             </div>
         </div>
-        <div class="hint-card" onclick="flipCard(this)">
-            <div class="hint-card-inner">
-                <div class="hint-front" style="background-image: url('hint3.png'); background-size: cover;"></div>
-                <div class="hint-back">日付と文字数の関係を読み解こう</div>
-            </div>
-        </div>
-    </div>
         <div class="hint-text">
-
+            <p>ヒント1</p>
+            <p>ヒント2</p>
         </div>
+        <img src="kado2.png" alt="足跡" class="kado kado-bottom-left">
     </div>
 
     <script>
